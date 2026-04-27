@@ -40,6 +40,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/leaderboard.json submission/results.csv
+          git add docs/leaderboard.json
+          git add submission/results.csv || true
           git diff --cached --quiet || git commit -m "🤖 Update leaderboard"
           git push
