@@ -1,0 +1,6 @@
+id,hour_of_day,day_of_week,month,district,population_density,unemployment_rate,poverty_rate,temperature,is_weekend,street_lights,prior_incidents
+1,4,2,5,3,7200,11.0,21.0,17.5,0,1,12
+2,18,5,8,6,9800,14.5,29.0,24.0,1,0,28
+3,22,0,11,9,12500,17.8,34.5,6.0,0,0,38
+4,9,3,3,1,4200,8.0,13.0,21.0,0,1,7
+5,1,6,1,7,10500,16.2,30.8,0.5,1,0,42

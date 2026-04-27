@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🚔 Crime Analysis - Leaderboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #0d1117; color: #c9d1d9; margin: 0; padding: 30px; }
+    h1   { text-align: center; color: #58a6ff; }
+    p.subtitle { text-align: center; color: #8b949e; margin-top: -10px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 30px; }
+    th { background: #161b22; color: #58a6ff; padding: 12px; border: 1px solid #30363d; }
+    td { padding: 10px; border: 1px solid #30363d; text-align: center; }
+    tr:nth-child(even) { background: #161b22; }
+    tr:nth-child(odd)  { background: #0d1117; }
+    tr:first-child td  { font-weight: bold; color: #ffd700; }
+    .medal { font-size: 1.2em; }
+    footer { text-align: center; margin-top: 40px; color: #8b949e; font-size: 0.85em; }
+  </style>
+</head>
+<body>
+  <h1>🚔 Crime Analysis ML — Leaderboard</h1>
+  <p class="subtitle">Ranked by Accuracy on the hidden test set</p>
+
+  <table id="leaderboard">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Accuracy</th>
+        <th>F1 Score</th>
+        <th>Submitted At</th>
+      </tr>
+    </thead>
+    <tbody id="lb-body">
+      <tr><td colspan="5">Loading...</td></tr>
+    </tbody>
+  </table>
+
+  <footer>Auto-updated via GitHub Actions · Crime Analysis ML Competition</footer>
+
+  <script>
+    const medals = ["🥇", "🥈", "🥉"];
+    fetch("leaderboard.json")
+      .then(r => r.json())
+      .then(data => {
+        const tbody = document.getElementById("lb-body");
+        tbody.innerHTML = "";
+        data.forEach((row, i) => {
+          const rank  = medals[i] || (i + 1);
+          const ts    = new Date(row.timestamp).toLocaleString();
+          tbody.innerHTML += `
+            <tr>
+              <td class="medal">${rank}</td>
+              <td>${row.name}</td>
+              <td>${(row.accuracy * 100).toFixed(2)}%</td>
+              <td>${(row.f1_score * 100).toFixed(2)}%</td>
+              <td>${ts}</td>
+            </tr>`;
+        });
+      })
+      .catch(() => {
+        document.getElementById("lb-body").innerHTML =
+          "<tr><td colspan='5'>No submissions yet.</td></tr>";
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+Crime Analysis - Test Set Description
+======================================
+
+This file describes the test dataset format used for submission evaluation.
+
+Columns:
+- id                 : Unique incident identifier
+- hour_of_day        : Hour of the day (0-23)
+- day_of_week        : Day of week (0=Monday, 6=Sunday)
+- month              : Month (1-12)
+- district           : Police district number (1-10)
+- population_density : People per sq km
+- unemployment_rate  : Local unemployment % (0-100)
+- poverty_rate       : Local poverty % (0-100)
+- temperature        : Temperature in Celsius
+- is_weekend         : 1 if weekend, 0 otherwise
+- street_lights      : 1 if street lights present, 0 otherwise
+- prior_incidents    : Number of prior incidents in the area
+
+Target (in train.csv only):
+- crime_type : One of [Theft, Assault, Burglary, Vandalism, Robbery]
+
+Submission Format:
+- Your submission CSV must have exactly 2 columns: id, crime_type
+- Example: submission/YourName.csv

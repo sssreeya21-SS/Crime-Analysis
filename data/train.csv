@@ -1,0 +1,11 @@
+hour_of_day,day_of_week,month,district,population_density,unemployment_rate,poverty_rate,temperature,is_weekend,street_lights,prior_incidents,crime_type
+2,1,3,5,8000,12.5,22.3,18.0,0,1,15,Theft
+14,5,7,2,3000,8.2,10.1,30.5,1,1,3,Assault
+23,6,12,8,12000,18.0,35.0,5.0,1,0,40,Burglary
+10,3,6,4,6500,9.8,18.5,25.0,0,1,8,Vandalism
+1,0,1,7,9500,15.3,28.7,2.0,0,0,22,Robbery
+16,2,9,1,4000,7.5,12.0,22.0,0,1,5,Theft
+20,4,11,6,11000,16.8,31.2,8.0,0,0,33,Burglary
+8,1,4,3,5500,10.2,20.0,20.0,0,1,11,Assault
+3,6,2,9,13000,19.5,38.0,1.0,1,0,45,Robbery
+13,3,8,2,3500,8.8,14.5,28.0,0,1,6,Vandalism
