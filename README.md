@@ -87,7 +87,7 @@ crime-analysis-ml/
 
 ## 🏆 Leaderboard
 
-Live leaderboard → [GitHub Pages](https://YOUR_USERNAME.github.io/crime-analysis-ml/)
+Live leaderboard → [GitHub Pages](https://sssreeya21-ss.github.io/Crime-Analysis/)
 
 Ranked by **Accuracy** on the hidden test set.
 
