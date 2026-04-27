@@ -1,0 +1,27 @@
+name: Update Leaderboard
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  evaluate-model:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Run model evaluation
+        run: |
+          python evaluate.py --model ${{ github.event.pull_request.user.login }}
+      
+      - name: Update leaderboard
+        run: |
+          python update_leaderboard.py
+      
+      - name: Commit leaderboard changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add leaderboard.json
+          git commit -m "Update leaderboard for PR #${{ github.event.pull_request.number }}" || echo "No changes"
+          git push
