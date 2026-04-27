@@ -2,9 +2,8 @@ name: Evaluate Submissions
 
 on:
   push:
-    paths:
-      - "submission/**.csv"
-  pull_request:
+    branches:
+      - main
     paths:
       - "submission/**.csv"
 
@@ -13,13 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pull-requests: write
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
 
       - uses: actions/setup-python@v4
         with:
@@ -27,13 +23,6 @@ jobs:
 
       - name: Install dependencies
         run: pip install pandas scikit-learn
-
-      - name: Copy submission from PR
-        if: github.event_name == 'pull_request'
-        run: |
-          git fetch origin pull/${{ github.event.pull_request.number }}/head:pr-branch
-          git checkout pr-branch -- submission/
-          git checkout main -- .
 
       - name: Run evaluator
         run: python grader/evaluator.py
@@ -43,6 +32,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/leaderboard.json
-          git add submission/ || true
+          git add submission/results.csv || true
           git diff --cached --quiet || git commit -m "🤖 Update leaderboard"
-          git push origin main
+          git push
