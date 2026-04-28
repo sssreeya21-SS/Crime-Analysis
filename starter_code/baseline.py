@@ -24,7 +24,15 @@ le = LabelEncoder()
 y_encoded = le.fit_transform(y_train)
 
 # ── Train Baseline Model ───────────────────────────────────────────────────────
-model = RandomForestClassifier(n_estimators=100, random_state=42)
+from sklearn.ensemble import GradientBoostingClassifier
+
+model = GradientBoostingClassifier(
+    n_estimators=200,
+    learning_rate=0.05,
+    max_depth=5,
+    random_state=42
+)
+
 model.fit(X_train, y_encoded)
 
 # ── Save Model ─────────────────────────────────────────────────────────────────
