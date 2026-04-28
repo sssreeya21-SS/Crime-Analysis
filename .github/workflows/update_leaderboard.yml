@@ -3,8 +3,7 @@ name: Update Leaderboard
 on:
   push:
     paths:
-      - 'leaderboard.csv'
-      - 'submissions/**'
+      - 'submission/**'
 
 jobs:
   update-readme:
