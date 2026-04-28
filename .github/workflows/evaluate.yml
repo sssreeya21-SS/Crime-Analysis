@@ -1,21 +1,19 @@
-name: Evaluate Submissions
+name: Evaluate Submission
 
 on:
-  push:
+  pull_request:
     branches:
       - main
-    paths:
-      - "submission/**.csv"
+
+permissions:
+  contents: write
 
 jobs:
   evaluate:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+
     steps:
       - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-python@v4
         with:
