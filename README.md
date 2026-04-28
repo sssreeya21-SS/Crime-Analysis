@@ -87,7 +87,7 @@ crime-analysis-ml/
 
 ## 🏆 Leaderboard
 
-Live leaderboard → [GitHub Pages](https://sssreeya21-ss.github.io/Crime-Analysis/)
+Live leaderboard → [Leaderboard](https://sssreeya21-ss.github.io/Crime-Analysis/)
 
 Ranked by **Accuracy** on the hidden test set.
 
@@ -104,5 +104,7 @@ Ranked by **Accuracy** on the hidden test set.
 
 ## 👨‍💻 Author
 
-Your Name  
-Your College / Team
+Sreeya S S 
+Aayushi Naik 
+Saksham Lohote
+DSBDA Studends MIT-WPU
