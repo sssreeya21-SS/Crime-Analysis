@@ -31,7 +31,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
           git add docs/leaderboard.json
           git add submission/results.csv || true
           git diff --cached --quiet || git commit -m "🤖 Update leaderboard"
-          git push
+          git push origin main

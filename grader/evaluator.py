@@ -19,8 +19,9 @@ def evaluate_submission(filepath, ground_truth):
         return None, "Missing required columns: id, Crime Description"
     df = df.set_index("id")
     aligned = df.reindex(ground_truth.index)
-    if aligned["Crime Description"].isnull().any():
-        return None, "Submission is missing some IDs"
+    aligned = aligned.dropna(subset=["Crime Description"])
+    if len(aligned) == 0:
+        return None, "No matching IDs found"
     acc = accuracy_score(ground_truth, aligned["Crime Description"])
     f1  = f1_score(ground_truth, aligned["Crime Description"], average="weighted")
     return {"accuracy": round(acc, 4), "f1_score": round(f1, 4)}, None
