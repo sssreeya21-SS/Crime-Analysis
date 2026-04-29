@@ -22,8 +22,10 @@ def evaluate_submission(filepath, ground_truth):
     aligned = aligned.dropna(subset=["Crime Description"])
     if len(aligned) == 0:
         return None, "No matching IDs found"
-    acc = accuracy_score(ground_truth, aligned["Crime Description"])
-    f1  = f1_score(ground_truth, aligned["Crime Description"], average="weighted")
+    
+    gt_aligned = ground_truth.reindex(aligned.index)  # ✅ Fix shape mismatch
+    acc = accuracy_score(gt_aligned, aligned["Crime Description"])
+    f1  = f1_score(gt_aligned, aligned["Crime Description"], average="weighted")
     return {"accuracy": round(acc, 4), "f1_score": round(f1, 4)}, None
 
 def run_grader():
