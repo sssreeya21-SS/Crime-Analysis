@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "name": "siyaagarwal2005",
+    "accuracy": 0.8723,
+    "f1_score": 0.8541,
+    "timestamp": "2026-04-29T10:30:00"
+  },
+  {
+    "name": "sssreeya21-SS",
+    "accuracy": 0.8512,
+    "f1_score": 0.8398,
+    "timestamp": "2026-04-29T11:00:00"
+  },
+  {
+    "name": "testuser",
+    "accuracy": 0.7934,
+    "f1_score": 0.7812,
+    "timestamp": "2026-04-29T11:30:00"
+  }
+]
