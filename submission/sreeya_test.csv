@@ -1,4 +1,6 @@
-id,Crime type
-1,THEFT
-2,BATTERY
-3,ASSAULT
+id,crime_type
+1,Theft
+2,Assault
+3,Burglary
+4,Vandalism
+5,Robbery
